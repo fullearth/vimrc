@@ -28,21 +28,21 @@ noremap <Space>l $
 " php tag
 inoremap <Leader>php <?php  ?><LEFT><LEFT><LEFT>
 " ()
-function! g:needSemicolon()
-	if &filetype =~ 'ruby\|vim\|htm'
-		return "\<LEFT>"
-	else
-		return ";\<LEFT>\<LEFT>"
-	endif
-	return ""
-endfunction
-inoremap <expr><Plug>endSemicolon g:needSemicolon()
-imap (); ()<Plug>endSemicolon
-imap {}; {}<Plug>endSemicolon<CR><ESC>O
-imap []; []<Plug>endSemicolon
-imap ""; ""<Plug>endSemicolon
-imap ''; ''<Plug>endSemicolon
-imap //; //<Plug>endSemicolon
+" function! g:needSemicolon()
+" 	if &filetype =~ 'ruby\|vim\|htm'
+" 		return "\<LEFT>"
+" 	else
+" 		return ";\<LEFT>\<LEFT>"
+" 	endif
+" 	return ""
+" endfunction
+" inoremap <expr><Plug>endSemicolon g:needSemicolon()
+" imap (); ()<Plug>endSemicolon
+" imap {}; {}<Plug>endSemicolon<CR><ESC>O
+" imap []; []<Plug>endSemicolon
+" imap ""; ""<Plug>endSemicolon
+" imap ''; ''<Plug>endSemicolon
+" imap //; //<Plug>endSemicolon
 inoremap <> <><LEFT>
 inoremap {<CR> {<CR>}<ESC>O
 
