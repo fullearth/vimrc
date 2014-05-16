@@ -1,0 +1,70 @@
+
+gui
+"colorscheme
+colorscheme solarized
+set background=dark
+set guifont=TakaoGothic:h12
+"透明度関係
+"とりあえず起動時のデフォルトを200
+set transparency=200
+let s:_transparency = &transparency
+function! g:toggleTransparency()
+	if &transparency != 255
+		let s:_transparency = &transparency
+		set transparency=255
+	else
+		execute 'set transparency=' . s:_transparency
+	endif
+endfunction
+noremap <expr><Plug>_toggleTransparency g:toggleTransparency()
+map <Space>tt <Plug>_toggleTransparency
+noremap <Space>t+ :set transparency+=10
+noremap <Space>t- :set transparency-=10
+
+set guioptions-=T
+
+set lines=40
+set columns=160
+
+set formatoptions=q	"自動改行(tw)回避
+"save windowsize,windowpos
+"end save windowsize,windowpos
+"let g:save_window_file = expand('~/.vimwinpos')
+"augroup SaveWindow
+"  autocmd!
+"  autocmd VimLeavePre * call s:save_window()
+"  function! s:save_window()
+"    let options = [
+"      \ 'set columns=' . &columns,
+"      \ 'set lines=' . &lines,
+"      \ 'winpos ' . getwinposx() . ' ' . getwinposy(),
+"      \ ]
+"    call writefile(options, g:save_window_file)
+"  endfunction
+"augroup END
+"
+"if filereadable(g:save_window_file)
+"  execute 'source' g:save_window_file
+"endif
+" 全角スペース・行末のスペース・タブの可視化
+if has("syntax")
+    syntax on
+ 
+    " PODバグ対策
+    syn sync fromstart
+ 
+    function! ActivateInvisibleIndicator()
+        syntax match InvisibleJISX0208Space "　" display containedin=ALL
+        highlight InvisibleJISX0208Space term=underline ctermbg=Blue guibg=darkgray gui=underline
+        "syntax match InvisibleTrailedSpace "[ \t]\+$" display containedin=ALL
+        "highlight InvisibleTrailedSpace term=underline ctermbg=Red guibg=NONE gui=undercurl guisp=darkorange
+        "syntax match InvisibleTab "\t" display containedin=ALL
+        "highlight InvisibleTab term=underline ctermbg=white gui=undercurl guisp=darkslategray
+    endfunction
+ 
+    augroup invisible
+        autocmd! invisible
+        autocmd BufNew,BufRead * call ActivateInvisibleIndicator()
+    augroup END
+endif
+
