@@ -64,8 +64,8 @@ set whichwrap=b,s,<,>,[,]
 " set command
 " 行末を無視して矩形選択
 set virtualedit+=block
-" タブ幅4、スペースでインデントをデフォルトにする
-set tabstop=2 " タブ幅を4に設定
+" タブ幅2、スペースでインデントをデフォルトにする
+set tabstop=2 " タブ幅を2に設定
 set expandtab " タブをスペースに変換
 set softtabstop=2
 set autoindent

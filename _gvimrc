@@ -3,23 +3,29 @@ gui
 "colorscheme
 colorscheme solarized
 set background=dark
-set guifont=TakaoGothic:h12
+if has('win32') || has('win64')
+  set guifont=TakaoGothic:h12
+else
+  set guifont=Ricty\ bold\ 12
+endif
 "透明度関係
-"とりあえず起動時のデフォルトを200
-set transparency=200
-let s:_transparency = &transparency
-function! g:toggleTransparency()
-	if &transparency != 255
-		let s:_transparency = &transparency
-		set transparency=255
-	else
-		execute 'set transparency=' . s:_transparency
-	endif
-endfunction
-noremap <expr><Plug>_toggleTransparency g:toggleTransparency()
-map <Space>tt <Plug>_toggleTransparency
-noremap <Space>t+ :set transparency+=10
-noremap <Space>t- :set transparency-=10
+if has('win32') || has('win64')
+  "とりあえず起動時のデフォルトを200
+  set transparency=200
+  let s:_transparency = &transparency
+  function! g:toggleTransparency()
+    if &transparency != 255
+      let s:_transparency = &transparency
+      set transparency=255
+    else
+      execute 'set transparency=' . s:_transparency
+    endif
+  endfunction
+  noremap <expr><Plug>_toggleTransparency g:toggleTransparency()
+  map <Space>tt <Plug>_toggleTransparency
+  noremap <Space>t+ :set transparency+=10
+  noremap <Space>t- :set transparency-=10
+endif
 
 set guioptions-=T
 
