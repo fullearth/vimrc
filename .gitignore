@@ -3,7 +3,6 @@
 
 !/_vimrc
 !/_gvimrc
-!/vimfiles/.bundle/neobundle.vim
 !/.gitignore
 !/linkvimrc.sh
 
