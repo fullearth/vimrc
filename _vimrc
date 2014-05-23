@@ -48,6 +48,8 @@ inoremap {<CR> {<CR>}<ESC>O
 
 " commnet
 inoremap <LEADER>comment //<ESC>40a*<ESC>yypO<Space>
+nmap <Leader>c <Plug>(caw:i:toggle)
+vmap <Leader>c <Plug>(caw:i:toggle)
 
 " <ESC> with OFF IME
 inoremap <silent><C-J> <ESC>:set iminsert=0<CR>
@@ -130,6 +132,7 @@ NeoBundle 'Shougo/vimshell.vim'
 NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'vim-scripts/YankRing.vim'
+NeoBundle 'tyru/caw.vim'
 
 if has('win32') || has('win64')
 	
