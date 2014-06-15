@@ -130,6 +130,7 @@ NeoBundle 'Shougo/vimshell.vim'
 NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'vim-scripts/YankRing.vim'
+NeoBundle 'pbrisbin/vim-syntax-shakespeare'
 
 if has('win32') || has('win64')
 	
